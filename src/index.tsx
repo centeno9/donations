@@ -1,15 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.scss';
 import App from './App';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
+import Home from './routes/home';
+import Login from './routes/login';
+import { initializeApp } from 'firebase/app';
+import { config } from './config/config';
+import { MyAccount } from './routes/myAccount';
+import AuthRoute from './components/AuthRoute/AuthRoute';
+
+initializeApp(config.firebaseConfig);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<App />}>
+          <Route path="inicio" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="mi-cuenta" element={<AuthRoute><MyAccount /></AuthRoute>} />
+          <Route
+            path="*"
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>There's nothing here!</p>
+              </main>
+            }
+          />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

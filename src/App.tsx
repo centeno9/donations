@@ -1,26 +1,30 @@
 import React from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import { Link, Outlet } from 'react-router-dom';
+import { signOut, getAuth } from 'firebase/auth';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	const auth = getAuth();
+
+
+	return (
+		<div>
+			<h1>Lista</h1>
+			<nav
+				style={{
+					borderBottom: "solid 1px",
+					paddingBottom: "1rem",
+				}}
+			>
+				<Link to="/inicio">Inicio</Link> |{" "}
+				<Link to="/login">Iniciar sesión</Link>
+				<button onClick={() => signOut(auth)} >Sign out</button>
+			</nav>
+			<Outlet />
+		</div>
+	);
 }
 
 export default App;
