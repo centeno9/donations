@@ -8,6 +8,7 @@ function App() {
 
 	const auth = getAuth();
 
+	console.log(auth)
 
 	return (
 		<div>
