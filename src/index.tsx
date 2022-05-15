@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './routes/home';
 import Login from './routes/login';
 import { initializeApp } from 'firebase/app';
-import { config } from './config/config';
+import { config } from './config/firebase';
 import { MyAccount } from './routes/myAccount';
 import AuthRoute from './components/AuthRoute/AuthRoute';
 

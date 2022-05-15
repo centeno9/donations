@@ -1,6 +1,10 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { setDoc, doc } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { db } from "../../../config/firebase";
+
+
 
 function LoginPage() {
     const auth = getAuth();
@@ -11,9 +15,17 @@ function LoginPage() {
         setAuthing(true);
 
         signInWithPopup(auth, new GoogleAuthProvider())
-            .then(response => {
+            .then(async response => {
                 console.log(response);
-                navigate('/mi-cuenta');
+
+                const docRef = await setDoc(doc(db, "users", response.user.uid), {
+                    name: response.user.displayName,
+                    email: response.user.email,
+                    phone: response.user.phoneNumber,
+                    profilePic: response.user.photoURL,
+                }).then(() => {
+                    navigate('/mi-cuenta');
+                });
             })
             .catch(error => {
                 console.log(error);
@@ -21,7 +33,7 @@ function LoginPage() {
             })
     }
     return (
-        <button onClick={() => signInWithGoogle()}  disabled={authing}>Sign in with google</button>
+        <button onClick={() => signInWithGoogle()} disabled={authing}>Sign in with google</button>
     );
 }
 
