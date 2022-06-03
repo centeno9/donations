@@ -1,7 +1,7 @@
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { setDoc, doc, getDoc } from 'firebase/firestore';
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { db } from "../../../config/firebase";
 
 
@@ -32,11 +32,12 @@ function LoginPage() {
                         email: response.user.email,
                         phone: response.user.phoneNumber,
                         profilePic: response.user.photoURL,
+                        remainingAds: 1
                     }).then(() => {
                         navigate('/mi-cuenta');
                     });
                 }
-                
+
             })
             .catch(error => {
                 console.log(error);

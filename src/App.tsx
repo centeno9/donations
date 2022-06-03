@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import { Link, Outlet } from 'react-router-dom';
 import { signOut, getAuth } from 'firebase/auth';
+import Navbar from './components/Navbar/Navbar';
+import { AuthProvider } from './Context/UserContext';
 
 function App() {
-
 	
 
 	return (
-		<div>
-			<h1>Lista</h1>
-			
-			<Outlet />
-		</div>
+		<AuthProvider >
+			<div>
+				<Navbar />
+				<Outlet />
+			</div>
+		</AuthProvider>
 	);
 }
 

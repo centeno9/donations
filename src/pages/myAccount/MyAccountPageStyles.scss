@@ -1,0 +1,63 @@
+.my-account-main-container {
+
+    .header-container {
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        .sign-out-btn {
+            font-size: 2rem;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: #941010;
+            border: 2px solid #941010;
+            background-color: white;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .sign-out-btn:hover {
+            background-color: #941010;
+            color: white;
+            font-weight: 500;
+        }
+    }
+
+    .my-account-nav-tabs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            width: 250px;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+
+            .tab {
+                padding: 10px 40px;
+                border-bottom: 2px solid transparent;
+
+                font-size: 1.6rem;
+            }
+
+        }
+        .active {
+            .tab {
+                border-bottom: 2px solid #941010;
+            }
+        }
+        
+        a:hover {
+
+            .tab {
+                border-bottom: 2px solid #941010;
+            }
+        }
+    }
+}

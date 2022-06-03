@@ -1,6 +1,8 @@
+import HomeContent from "../../Content/HomeContent/HomeContent";
+
 function HomePage () {
     return(
-        <h1>this is home page</h1>
+        <HomeContent />
     );
 }
 

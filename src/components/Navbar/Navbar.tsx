@@ -1,23 +1,33 @@
 import { getAuth, signOut } from "firebase/auth";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../Context/UserContext";
+import './Styles.scss';
 
 
 function Navbar() {
 
+    let user = useAuth().user;
+    const signout = useAuth().logout;
+
+    console.log(user)
+
     const auth = getAuth();
 
-	console.log(auth)
+    console.log(auth);
+
+    const logOut = () => {
+        signout();
+    }
 
     return (
-        <nav
-            style={{
-                borderBottom: "solid 1px",
-                paddingBottom: "1rem",
-            }}
-        >
-            <Link to="/inicio">Inicio</Link> |{" "}
-            <Link to="/login">Iniciar sesión</Link>
-            <button onClick={() => signOut(auth)} >Sign out</button>
+        <nav>
+            <Link to="/inicio">Inicio</Link>
+            {user === null ? (
+                <Link className="my-account-btn" to="/login">Iniciar sesión</Link>
+            ) : (
+                <Link className="my-account-btn" to={'/mi-cuenta'}>Mi cuenta</Link>
+            )}
         </nav>
     );
 }
