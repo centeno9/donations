@@ -42,7 +42,7 @@ root.render(
           <Route path="mi-cuenta" element={<RequireAuth><MyAccount /></RequireAuth>} >
             <Route index element={<MyInfoContent />} />
             <Route path="datos" element={<MyInfoContent />} />
-            <Route path="mis-anuncios" element={<MyAdsContent />} />
+            <Route path="anuncios" element={<MyAdsContent />} />
           </Route>
           <Route
             path="*"

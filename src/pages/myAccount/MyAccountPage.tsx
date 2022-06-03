@@ -17,12 +17,12 @@ function MyAccountPage() {
                 <button onClick={signout} className='sign-out-btn'>Cerrar sesión</button>
             </div>
             <div className="my-account-nav-tabs">
-                <NavLink className={''} to="datos">
+                <NavLink to="datos">
                     <div className="tab">
                         <h2>Mis datos</h2>
                     </div>
                 </NavLink>
-                <NavLink to="mis-anuncios">
+                <NavLink to="anuncios">
                     <div className="tab">
                         <h2>Mis anuncios</h2>
                     </div>
