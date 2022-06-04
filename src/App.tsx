@@ -1,10 +1,9 @@
-import React, { useMemo, useState } from 'react';
-import logo from './logo.svg';
 import './App.scss';
 import { Link, Outlet } from 'react-router-dom';
-import { signOut, getAuth } from 'firebase/auth';
 import Navbar from './components/Navbar/Navbar';
 import { AuthProvider } from './Context/UserContext';
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
 	
