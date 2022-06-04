@@ -22,7 +22,7 @@ function Navbar() {
 
     return (
         <nav>
-            <Link to="/inicio">Inicio</Link>
+            <Link to="/">Inicio</Link>
             {user === null ? (
                 <Link className="my-account-btn" to="/login">Iniciar sesión</Link>
             ) : (

@@ -37,7 +37,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />}>
-          <Route path="inicio" element={<Home />} />
+          <Route path="" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="mi-cuenta" element={<RequireAuth><MyAccount /></RequireAuth>} >
             <Route index element={<MyInfoContent />} />
