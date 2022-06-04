@@ -1,0 +1,30 @@
+.cards-corrousel {
+   
+    width: 100%;
+    max-width: 990px;
+    border-radius: 10px;
+    
+    .cards-container {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    .see-more-btn-container {
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            padding: 10px;
+            border-radius: 10px;
+            border: 2px solid #941010;
+            color: #941010;
+            font-size: 1.6rem;
+            background-color: white;
+            font-weight: 500;
+        }
+    }
+}

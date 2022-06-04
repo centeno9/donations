@@ -1,0 +1,28 @@
+.home-main-container {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    .header {
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+
+    .carrousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .title {
+            margin-bottom: 10px;
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    }
+}

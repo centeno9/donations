@@ -9,7 +9,9 @@ function MyInfoContent() {
         <div className="my-info-main-container">
             <div className="profile-pic-container">
                 <div className="image-container">
-                    <img src={user.profilePic} alt="imagen de perfil" />
+                    {user.profilePic !== "" && (
+                        <img src={user.profilePic} alt="imagen de perfil" />
+                    )}
                 </div>
             </div>
             <div className="info-card">

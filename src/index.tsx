@@ -7,9 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import Home from './routes/home';
 import Login from './routes/login';
 import { MyAccount } from './routes/myAccount';
-import MyInfoContent from './pages/home/content/MyInfoContent/MyInfoContent';
-import MyAdsContent from './pages/home/content/MyAdsContent/MyAdsContent';
+import MyInfoContent from './pages/myAccount/content/MyInfoContent/MyInfoContent';
+import MyAdsContent from './pages/myAccount/content/MyAdsContent/MyAdsContent';
 import { useAuth } from './Context/UserContext';
+import Register from './pages/auth/register/Register';
 
 
 const root = ReactDOM.createRoot(
@@ -39,6 +40,7 @@ root.render(
         <Route path='/' element={<App />}>
           <Route path="" element={<Home />} />
           <Route path="login" element={<Login />} />
+          <Route path="registro" element={<Register />} />
           <Route path="mi-cuenta" element={<RequireAuth><MyAccount /></RequireAuth>} >
             <Route index element={<MyInfoContent />} />
             <Route path="datos" element={<MyInfoContent />} />

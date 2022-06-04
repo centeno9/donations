@@ -11,7 +11,7 @@ function App() {
 
 	return (
 		<AuthProvider >
-			<div>
+			<div className='app-main-container '>
 				<Navbar />
 				<Outlet />
 			</div>
