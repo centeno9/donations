@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./CarCardStyles.scss";
 
-function CarCard({ad, index}:any) {
+function CarCard({ ad, index }: any) {
 
     return (
         <div className="card-card-main-container">
@@ -17,7 +17,7 @@ function CarCard({ad, index}:any) {
                 <h3 className="kilometer">{ad.km.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} km</h3>
             </div>
             <div className="see-more">
-                <Link to={"auto"}>Ver más</Link>
+                <Link to={"/auto/" + ad.id}>Ver más</Link>
             </div>
         </div>
     );

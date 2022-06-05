@@ -1,19 +1,22 @@
+import { Link } from "react-router-dom";
 import CarCard from "../CarCard/CarCard";
 import "./CardsCarrousel.scss";
 
-function CardsCarrousel({ads}:any) {
+function CardsCarrousel({ ads, type }: any) {
 
     return (
         <div className="cards-corrousel">
             <div className="cards-container">
                 {ads.map((ad: any, index: any) => {
-                    return(
+                    return (
                         <CarCard ad={ad} index={index} />
                     )
                 })}
             </div>
             <div className="see-more-btn-container">
-                <button>Ver todos</button>
+                <Link to={"/autos/" + type}>
+                    <button>Ver todos</button>
+                </Link>
             </div>
         </div>
     );

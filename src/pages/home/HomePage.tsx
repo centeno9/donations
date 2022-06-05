@@ -52,19 +52,19 @@ function HomePage() {
                 <div className='title'>
                     <h2>Autos nuevos</h2>
                 </div>
-                <CardsCarrousel ads={newCars} />
+                <CardsCarrousel ads={newCars} type={"nuevos"} />
             </div>
             <div className='carrousel-container seminew-cars-container'>
                 <div className='title'>
                     <h2>Autos semi-nuevos</h2>
                 </div>
-                <CardsCarrousel ads={semiNewCars} />
+                <CardsCarrousel ads={semiNewCars} type={"seminuevos"} />
             </div>
             <div className='carrousel-container seminew-cars-container'>
                 <div className='title'>
                     <h2>Todos los autos</h2>
                 </div>
-                <CardsCarrousel ads={allCars} />
+                <CardsCarrousel ads={allCars} type={"todos"} />
             </div>
         </div>
     );

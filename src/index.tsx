@@ -11,6 +11,11 @@ import MyInfoContent from './pages/myAccount/content/MyInfoContent/MyInfoContent
 import MyAdsContent from './pages/myAccount/content/MyAdsContent/MyAdsContent';
 import { useAuth } from './Context/UserContext';
 import Register from './pages/auth/register/Register';
+import CarsPage from './pages/cars/CarsPage';
+import All from './pages/cars/content/all/All';
+import News from './pages/cars/content/news/News';
+import SemiNews from './pages/cars/content/seminews/SemiNews';
+import Details from './pages/Details/Details';
 
 
 const root = ReactDOM.createRoot(
@@ -46,6 +51,13 @@ root.render(
             <Route path="datos" element={<MyInfoContent />} />
             <Route path="anuncios" element={<MyAdsContent />} />
           </Route>
+          <Route path="autos" element={<CarsPage />}>
+            <Route index element={<All />} />
+            <Route path="todos" element={<All />} />
+            <Route path="nuevos" element={<News />} />
+            <Route path="seminuevos" element={<SemiNews />} />
+          </Route>
+          <Route path="auto/:id" element={<Details />} />
           <Route
             path="*"
             element={
