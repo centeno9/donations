@@ -4,6 +4,8 @@
     border-radius: 10px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
     background-color: white;
+    display: flex;
+    flex-direction: column;
 
 
     .image-container {
@@ -11,9 +13,16 @@
         height: 135px;
         border-radius: 10px 10px 0px 0px;
         overflow: hidden;
+        position: relative;
+        background-color: #b7b7b7;
 
         img {
-            width: 100%;
+            width: auto;
+            position: absolute;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
     }
 
@@ -46,6 +55,7 @@
         border-top: 1px solid rgba(0, 0, 0, 0.295);
         padding: 10px;
         text-align: center;
+        margin-top: auto;
 
         a {
             color: #941010;

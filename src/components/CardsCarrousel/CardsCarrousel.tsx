@@ -1,15 +1,16 @@
 import CarCard from "../CarCard/CarCard";
 import "./CardsCarrousel.scss";
 
-function CardsCarrousel() {
+function CardsCarrousel({ads}:any) {
 
     return (
         <div className="cards-corrousel">
             <div className="cards-container">
-                <CarCard />
-                <CarCard />
-                <CarCard />
-                <CarCard />
+                {ads.map((ad: any, index: any) => {
+                    return(
+                        <CarCard ad={ad} index={index} />
+                    )
+                })}
             </div>
             <div className="see-more-btn-container">
                 <button>Ver todos</button>
