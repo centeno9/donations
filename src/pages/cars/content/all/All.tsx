@@ -30,7 +30,7 @@ function All() {
         <div className="show-all-cards-type-container">
             {ads.map((ad: any, index: any) => {
                 return (
-                    <CarCard ad={ad} index={index} />
+                    <CarCard ad={ad} index={index} key={"all-cars-card-" + index} />
                 )
             })}
         </div>

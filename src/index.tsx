@@ -52,7 +52,7 @@ root.render(
             <Route path="anuncios" element={<MyAdsContent />} />
           </Route>
           <Route path="autos" element={<CarsPage />}>
-            <Route index element={<All />} />
+            <Route index element={<Navigate to="todos" />} />
             <Route path="todos" element={<All />} />
             <Route path="nuevos" element={<News />} />
             <Route path="seminuevos" element={<SemiNews />} />

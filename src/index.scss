@@ -1,18 +1,35 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto';
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto';
 }
 
 html {
-  font-size: 62.5%;
+	font-size: 62.5%;
 }
 
 body {
-  min-height: 100vh;
+	min-height: 100vh;
+	
+	button {
+		font-size: 1.6rem;
+		padding: 5px 20px;
+		border-radius: 10px;
+		cursor: pointer;
+	}
 }
 
-button {
-  cursor: pointer;
+.primary-action-btn {
+	color: #ffffff;
+	border: 2px solid #941010;
+	background-color: #941010;
+	font-weight: 500;
+}
+
+.secondary-action-btn {
+	color: #941010;
+	border: 2px solid #941010;
+	background-color: white;
+	font-weight: 500;
 }

@@ -7,9 +7,9 @@ function CardsCarrousel({ ads, type }: any) {
     return (
         <div className="cards-corrousel">
             <div className="cards-container">
-                {ads.map((ad: any, index: any) => {
+                {ads.map((ad: any, index: number) => {
                     return (
-                        <CarCard ad={ad} index={index} />
+                        <CarCard ad={ad} index={index} key={type + "-car-card-" + index} />
                     )
                 })}
             </div>

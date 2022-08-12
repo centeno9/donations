@@ -30,7 +30,7 @@ function News() {
         <div className="show-all-cards-type-container">
             {ads.map((ad: any, index: any) => {
                 return (
-                    <CarCard ad={ad} index={index} />
+                    <CarCard ad={ad} index={index} key={"new-car-card-" + index} />
                 )
             })}
         </div>

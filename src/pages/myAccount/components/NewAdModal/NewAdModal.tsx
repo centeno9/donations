@@ -97,6 +97,8 @@ function NewAdModal({ show, handleClose }: any) {
                     });
                 }
             }
+        } else {
+            alert("Favor de agregar imagenes")
         }
 
     }
@@ -240,11 +242,11 @@ function NewAdModal({ show, handleClose }: any) {
                 </div>
             </Modal.Body>
             <Modal.Footer>
-                <button onClick={close}>
-                    Close
+                <button className="secondary-action-btn" onClick={close}>
+                    Cerrar
                 </button>
-                <button onClick={createAd}>
-                    Save Changes
+                <button className="primary-action-btn" onClick={createAd}>
+                    Guardar
                 </button>
             </Modal.Footer>
         </Modal>
