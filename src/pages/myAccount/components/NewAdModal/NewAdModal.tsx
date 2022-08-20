@@ -1,9 +1,9 @@
 import { addDoc, collection } from "firebase/firestore";
 import {
-    getDownloadURL,
-    getStorage,
-    ref,
-    uploadBytesResumable
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable
 } from "firebase/storage";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
@@ -99,6 +99,7 @@ function NewAdModal({ show, handleClose }: any) {
 
           const docRef = await addDoc(collection(db, "ads"), {
             ...ad,
+            images: finalArrayFiles,
             userId: user.id,
           }).then(() => {
             setAd({ ...initialAdState });
@@ -333,17 +334,21 @@ function NewAdModal({ show, handleClose }: any) {
             </div>
             <div>
               {ad.images.length > 0 && (
-                <>
+                <div className="image-preview-container">
                   {ad.images.map((image: any, index: number) => {
                     return (
+                      <div>
                       <img
                         key={"previewImage-" + index}
+                        className="image-preview"
                         src={URL.createObjectURL(image)}
                         alt=""
                       />
+                      </div>
                     );
+                    
                   })}
-                </>
+                </div>
               )}
             </div>
           </div>

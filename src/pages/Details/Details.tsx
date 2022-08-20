@@ -9,6 +9,7 @@ function Details({ }) {
     const params = useParams();
     const [loading, setLoading] = useState<boolean>(true);
     const [ad, setAd]:any = useState({})
+    const [selectedImage, setSelectedImage]: any = useState({})
     const navigate = useNavigate();
 
     console.log(params.id)
@@ -19,6 +20,7 @@ function Details({ }) {
 
         if (docSnap.exists()) {
             setAd({id: docSnap.id, ...docSnap.data()});
+            setSelectedImage({...docSnap.data().images[0]})
             setLoading(false);
         } else {
             // doc.data() will be undefined in this case
@@ -46,8 +48,21 @@ function Details({ }) {
             <div className="details-car-card">
                 <div className="card-content">
                     <div className="main-content">
+                        <div>
                         <div className="image-container">
-                            <img src={ad.images[0].imageUrl} alt="imagen del auto" />
+                            <img src={selectedImage.imageUrl} alt="imagen del auto" />
+                        </div>
+                        <div className="image-selector-container">
+                            {ad.images.map((i: any)=>
+                                <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)}/>
+                            )}
+                            {ad.images.map((i: any)=>
+                                <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)}/>
+                            )}
+                            {ad.images.map((i: any)=>
+                                <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)}/>
+                            )}
+                        </div>
                         </div>
                         <div className="info-container">
                             <h2>{ad.brand} {ad.model} {ad.year}</h2>
