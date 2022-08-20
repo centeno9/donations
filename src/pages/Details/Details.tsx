@@ -56,12 +56,7 @@ function Details({ }) {
                             {ad.images.map((i: any)=>
                                 <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)}/>
                             )}
-                            {ad.images.map((i: any)=>
-                                <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)}/>
-                            )}
-                            {ad.images.map((i: any)=>
-                                <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)}/>
-                            )}
+                            
                         </div>
                         </div>
                         <div className="info-container">
