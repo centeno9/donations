@@ -16,6 +16,7 @@ import All from './pages/cars/content/all/All';
 import News from './pages/cars/content/news/News';
 import SemiNews from './pages/cars/content/seminews/SemiNews';
 import Details from './pages/Details/Details';
+import { Search } from './routes/search';
 
 
 const root = ReactDOM.createRoot(
@@ -57,6 +58,7 @@ root.render(
             <Route path="nuevos" element={<News />} />
             <Route path="seminuevos" element={<SemiNews />} />
           </Route>
+          <Route path="buscar" element={<Search />} />
           <Route path="auto/:id" element={<Details />} />
           <Route
             path="*"

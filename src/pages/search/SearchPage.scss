@@ -1,0 +1,26 @@
+.search-page-main-container {
+    padding: 40px;
+    display: flex;
+    flex-flow: column;
+    gap: 20px;
+
+    .loading-container {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .spinner-border {
+            width: 5rem;
+            height: 5rem;
+            border: 0.5em solid currentColor;
+            border-right-color: transparent;    
+        }
+    }
+
+    .search-cards-container {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+}
