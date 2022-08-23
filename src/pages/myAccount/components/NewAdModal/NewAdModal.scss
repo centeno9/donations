@@ -1,55 +1,60 @@
 .new-ad-modal {
+  .modal-dialog {
+    max-width: 900px;
 
-    .modal-dialog {
-
-        max-width: 900px;
-
-        .modal-content {
-
-            .modal-header {
-
-                .modal-title {
-                    font-size: 3rem;
-                }
-            }
-
-            .modal-body {
-
-                .form-container {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-                    justify-content: center;
-                    align-items: center;
-                    width: 100%;
-
-                    .form-row {
-                        width: 70%;
-
-                        h3 {
-                            font-size: 2rem;
-                        }
-    
-                        .input-container {
-                            border-radius: 10px;
-                            border: 1px solid #00000086;
-                            overflow: hidden;
-    
-                            input, select, textarea {
-                                padding: 5px;
-                                width: 100%;
-                                border: none;
-                                font-size: 1.6rem;
-                                outline: none;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .modal-footer {
-                justify-content: space-between;
-            }
+    .modal-content {
+      .modal-header {
+        .modal-title {
+          font-size: 3rem;
         }
+      }
+
+      .modal-body {
+        .form-container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+
+          .form-row {
+            width: 70%;
+
+            h3 {
+              font-size: 2rem;
+            }
+
+            .input-container {
+              border-radius: 10px;
+              border: 1px solid #00000086;
+              overflow: hidden;
+
+              input,
+              select,
+              textarea {
+                padding: 5px;
+                width: 100%;
+                border: none;
+                font-size: 1.6rem;
+                outline: none;
+              }
+            }
+          }
+          .image-preview-container {
+            display: flex;
+            .image-preview {
+              border-radius: 10px;
+              max-width: 100px;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+      .modal-footer {
+        justify-content: space-between;
+      }
     }
+  }
 }
