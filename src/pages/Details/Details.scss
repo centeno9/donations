@@ -1,5 +1,3 @@
-$image-ratio : 1.75;
-
 .details-car-main-container {
     padding: 40px;
     display: flex;
@@ -48,28 +46,6 @@ $image-ratio : 1.75;
                         left: 50%;
                         top: 50%;
                         transform: translate(-50%, -50%);
-                    }
-                    
-
-                }
-
-                .image-selector-container{
-                    padding-top: 10px;
-                    width: 720px;
-                    max-width: 720px;
-                    overflow-x: scroll;
-                    display: flex;
-                    .small-image-preview{
-                        height: 70px;
-                        width: calc(70px*$image-ratio);
-                        border-radius: 10px;
-                        transition: all .3s ease-in-out;
-                        cursor: pointer;
-                        margin-right: 15px;
-                        padding: 2px;
-                    }
-                    .small-image-preview:hover{
-                        padding: 0px;
                     }
                 }
 
