@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-input-mask": "^3.0.1"
+    "@types/react-input-mask": "^3.0.1",
+    "dotenv": "^16.0.1"
   }
 }

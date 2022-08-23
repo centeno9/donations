@@ -15,7 +15,7 @@ function CardsCarrousel({ ads, type }: any) {
             </div>
             <div className="see-more-btn-container">
                 <Link to={"/autos/" + type}>
-                    <button>Ver todos</button>
+                    <button className="secondary-action-btn">Ver todos</button>
                 </Link>
             </div>
         </div>
