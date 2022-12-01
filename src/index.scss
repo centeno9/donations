@@ -1,6 +1,7 @@
 // @use 'assets/variables' as variables;
 $primary-color-300: #941010;
 $white: #fff;
+$tertiary-color-300: #054b8b;
 
 * {
 	margin: 0;
@@ -35,6 +36,13 @@ body {
 	color: $primary-color-300;
 	border: 2px solid $primary-color-300;
 	background-color: $white;
+	font-weight: 500;
+}
+
+.tertiary-action-btn {
+	color: $white;
+    border: 2px solid $tertiary-color-300;
+	background-color: $tertiary-color-300;
 	font-weight: 500;
 }
 
