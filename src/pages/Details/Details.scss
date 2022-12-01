@@ -1,86 +1,106 @@
+$image-ratio: 1.75;
+
 .details-car-main-container {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
 
-
-    .header {
-        h1 {
-            font-size: 3rem;
-        }
+  .header {
+    h1 {
+      font-size: 3rem;
     }
+  }
 
-    .details-car-card {
-        border-radius: 10px;
-        width: 100%;
-        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-        max-width: 1260px;
-        align-self: center;
+  .details-car-card {
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+    max-width: 1260px;
+    align-self: center;
 
-        .card-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
 
-            .main-content {
-                display: flex;
-                gap: 20px;
+      .main-content {
+        display: flex;
+        gap: 20px;
 
+        .image-container {
+          width: 720px;
+          min-width: 720px;
+          height: 405px;
+          position: relative;
+          overflow: hidden;
+          background-color: #b7b7b7;
+          border-radius: 10px;
 
-                .image-container {
-                    width: 720px;
-                    min-width: 720px;
-                    height: 405px;
-                    position: relative;
-                    overflow: hidden;
-                    background-color: #b7b7b7;
-                    border-radius: 10px;
-
-                    img {
-                        width: auto;
-                        position: absolute;
-                        height: 100%;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                    }
-                }
-
-                .info-container {
-                    h2 {
-                        font-size: 4rem;
-                    }
-                    h3 {
-                        font-size: 2rem;
-                    }
-
-                    .price {
-                        color: #941010;
-                    }
-                }
-            }
-
-            .secondary-content {
-                border-top: 1px solid rgba(0, 0, 0, 0.274);
-                padding-top: 20px;
-
-                .description-container {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-
-                    h2 {
-                        font-size: 2rem;
-                    }
-                    p {
-                        font-size: 1.6rem;
-                        white-space: pre-wrap;
-                    }
-                }
-            }
+          img {
+            width: auto;
+            position: absolute;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
         }
+
+        .image-selector-container {
+          padding-top: 10px;
+          width: 720px;
+          max-width: 720px;
+          overflow-x: scroll;
+          display: flex;
+          .small-image-preview {
+            height: 70px;
+            width: calc(70px * $image-ratio);
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            margin-right: 15px;
+            padding: 2px;
+          }
+          .small-image-preview:hover {
+            padding: 0px;
+          }
+        }
+
+        .info-container {
+          h2 {
+            font-size: 4rem;
+          }
+          h3 {
+            font-size: 2rem;
+          }
+
+          .price {
+            color: #941010;
+          }
+        }
+      }
+
+      .secondary-content {
+        border-top: 1px solid rgba(0, 0, 0, 0.274);
+        padding-top: 20px;
+
+        .description-container {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          h2 {
+            font-size: 2rem;
+          }
+          p {
+            font-size: 1.6rem;
+            white-space: pre-wrap;
+          }
+        }
+      }
     }
+  }
 }
