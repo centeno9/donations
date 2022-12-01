@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AdQuestionsCard } from "../../components/AdQuestions/AdQuestionsCard";
 import { PublicityModal } from "../../components/PublicityModal/PublicityModal";
 import { db } from "../../config/firebase";
+import { useAuth } from "../../Context/UserContext";
 import "./Details.scss";
 
 function Details({}) {
@@ -13,6 +14,9 @@ function Details({}) {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage]: any = useState({});
   const [modalShow, setModalShow] = useState<boolean>(true);
+
+  
+  const user = useAuth().user;
 
   const getAd = async () => {
     const docRef = doc(db, "ads", params.id as string);
@@ -29,6 +33,9 @@ function Details({}) {
     }
   };
   useEffect(() => {
+    if(user === null) {
+      navigate('/login');
+    }
     getAd();
   }, []);
 
