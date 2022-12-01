@@ -1,6 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { AdQuestionsCard } from "../../components/AdQuestions/AdQuestionsCard";
 import { db } from "../../config/firebase";
 import "./Details.scss";
 
@@ -10,8 +11,6 @@ function Details({ }) {
     const [loading, setLoading] = useState<boolean>(true);
     const [ad, setAd]:any = useState({})
     const navigate = useNavigate();
-
-    console.log(params.id)
 
     const getAd = async () => {
         const docRef = doc(db, "ads", params.id as string);
@@ -47,6 +46,14 @@ function Details({ }) {
                 <div className="card-content">
                     <div className="main-content">
                         <div className="image-container">
+                            <img src={selectedImage.imageUrl} alt="imagen del auto" />
+                        </div>
+                        <div className="image-selector-container">
+                            {ad.images.map((i: any, index: number)=>
+                                <img src={i.imageUrl} alt='' className="small-image-preview" onClick={()=>setSelectedImage(i)} key={"ad-card-image-" + index} />
+                            )}
+                            
+                        </div>
                             <img src={ad.images[0].imageUrl} alt="imagen del auto" />
                         </div>
                         <div className="info-container">
@@ -63,6 +70,7 @@ function Details({ }) {
                     </div>
                 </div>
             </div>
+            <AdQuestionsCard adId={ad.id} adUserId={ad.userId} />
         </div>
     )
 }

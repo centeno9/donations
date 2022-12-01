@@ -1,6 +1,8 @@
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import CardsCarrousel from '../../components/CardsCarrousel/CardsCarrousel';
+import Filter from '../../components/Filter/Filter';
+
 import { db } from '../../config/firebase';
 import './HomePageStyles.scss';
 
@@ -45,6 +47,12 @@ function HomePage() {
         <div className="home-main-container">
             <div className='header'>
                 <h1>Inicio</h1>
+            </div>
+            <div className='filter-container'>
+                <div className='title'>
+                    <h2>Búsqueda personalizada</h2>
+                </div>
+                <Filter />
             </div>
             <div className='carrousel-container new-cars-container'>
                 <div className='title'>
