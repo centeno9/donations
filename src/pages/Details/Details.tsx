@@ -35,8 +35,9 @@ function Details({}) {
   useEffect(() => {
     if(user === null) {
       navigate('/login');
+    } else {
+      getAd();
     }
-    getAd();
   }, []);
 
   if (loading) {
