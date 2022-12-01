@@ -10,14 +10,13 @@ function CarCard({ ad, index }: any) {
             </div>
             <div className="info-container">
                 <div className="title">
-                    <h2>{ad.brand} {ad.model}</h2>
-                    <h2>{ad.year}</h2>
+                    <h2>{ad.title}</h2>
                 </div>
-                <h3 className="price">$ {parseInt(ad.price).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
-                <h3 className="kilometer">{ad.km.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} km</h3>
+                <h3 className="price">{ad.date}</h3>
+                <h3 className="price">{ad.location}</h3>
             </div>
             <div className="see-more">
-                <Link to={"/auto/" + ad.id}>Ver más</Link>
+                <Link to={"/donacion/" + ad.id}>Ver más</Link>
             </div>
         </div>
     );

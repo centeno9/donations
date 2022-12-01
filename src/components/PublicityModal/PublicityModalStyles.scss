@@ -1,0 +1,15 @@
+.publicity-modal {
+    .modal-body {
+        padding: 0;
+        height: 500px;
+        div {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(182, 182, 182);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+        }
+    }
+}

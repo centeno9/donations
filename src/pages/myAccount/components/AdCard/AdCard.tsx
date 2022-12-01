@@ -9,8 +9,8 @@ function AdCard ({ad, index}:any) {
                 </div>
                 <div className="main-container">
                     <div className="name-price">
-                        <h2>{ad.brand} {ad.model} {ad.year}</h2>
-                        <h3>$ {parseInt(ad.price).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}</h3>
+                        <h2>{ad.title} - {ad.location}</h2>
+                        <h3>{ad.date}</h3>
                     </div>
                     <div className="action-container">
                         <button className="edit-btn">Editar</button>

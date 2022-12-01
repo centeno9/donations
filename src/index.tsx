@@ -52,14 +52,12 @@ root.render(
             <Route path="datos" element={<MyInfoContent />} />
             <Route path="anuncios" element={<MyAdsContent />} />
           </Route>
-          <Route path="autos" element={<CarsPage />}>
+          <Route path="donaciones" element={<CarsPage />}>
             <Route index element={<Navigate to="todos" />} />
             <Route path="todos" element={<All />} />
-            <Route path="nuevos" element={<News />} />
-            <Route path="seminuevos" element={<SemiNews />} />
+            <Route path="recientes" element={<News />} />
           </Route>
-          <Route path="buscar" element={<Search />} />
-          <Route path="auto/:id" element={<Details />} />
+          <Route path="donacion/:id" element={<Details />} />
           <Route
             path="*"
             element={

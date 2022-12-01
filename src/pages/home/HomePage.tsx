@@ -1,79 +1,53 @@
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { useEffect, useState } from 'react';
-import CardsCarrousel from '../../components/CardsCarrousel/CardsCarrousel';
-import Filter from '../../components/Filter/Filter';
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import CardsCarrousel from "../../components/CardsCarrousel/CardsCarrousel";
+import Filter from "../../components/Filter/Filter";
+import { PublicityModal } from "../../components/PublicityModal/PublicityModal";
 
-import { db } from '../../config/firebase';
-import './HomePageStyles.scss';
+import { db } from "../../config/firebase";
+import "./HomePageStyles.scss";
 
 function HomePage() {
+  const [ads, setAds] = useState<Array<any>>([]);
+  const [modalShow, setModalShow] = useState<boolean>(true);
 
-    const [newCars, setNewCars] = useState<Array<any>>([])
-    const [semiNewCars, setSemiNewCars] = useState<Array<any>>([])
-    const [allCars, setAllCars] = useState<Array<any>>([])
+  const getAds = async () => {
+    let adsArray = new Array();
 
-    const getAds = async () => {
+    const q = query(collection(db, "ads"));
 
-        let newCarsArray = new Array();
-        let semiNewCarsArray = new Array();
-        let allCarsArray = new Array();
-        
-        const q = query(collection(db, "ads"));
+    const querySnapshot = await getDocs(q);
+    await Promise.all(
+      querySnapshot.docs.map((doc) => {
+        const data: any = { id: doc.id, ...doc.data() };
 
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-
-            const data:any = {id: doc.id, ...doc.data()};
-
-            if(data.state === "nuevo") {
-                newCarsArray.push(data);
-            } else {
-                semiNewCarsArray.push(data);
-            }
-            allCarsArray.push(data);
-
-        });
-
-        setAllCars(allCarsArray);
-        setSemiNewCars(semiNewCarsArray);
-        setNewCars(newCarsArray);
-    }
-
-    useEffect(() => {
-        getAds();
-    }, [])
-
-    return (
-        <div className="home-main-container">
-            <div className='header'>
-                <h1>Inicio</h1>
-            </div>
-            <div className='filter-container'>
-                <div className='title'>
-                    <h2>Búsqueda personalizada</h2>
-                </div>
-                <Filter />
-            </div>
-            <div className='carrousel-container new-cars-container'>
-                <div className='title'>
-                    <h2>Autos nuevos</h2>
-                </div>
-                <CardsCarrousel ads={newCars} type={"nuevos"} />
-            </div>
-            <div className='carrousel-container seminew-cars-container'>
-                <div className='title'>
-                    <h2>Autos semi-nuevos</h2>
-                </div>
-                <CardsCarrousel ads={semiNewCars} type={"seminuevos"} />
-            </div>
-            <div className='carrousel-container seminew-cars-container'>
-                <div className='title'>
-                    <h2>Todos los autos</h2>
-                </div>
-                <CardsCarrousel ads={allCars} type={"todos"} />
-            </div>
-        </div>
+        adsArray.push(data);
+      })
     );
+
+    setAds(adsArray);
+  };
+
+  useEffect(() => {
+    getAds();
+  }, []);
+
+  return (
+    <div className="home-main-container">
+      <PublicityModal show={modalShow} onHide={() => setModalShow(false)} />
+      <div className="ad-publicity-space">Espacio publicitario</div>
+      <div className="header">
+        <h1>Inicio</h1>
+      </div>
+      <div className="carrousel-container seminew-cars-container">
+        <div className="title">
+          <h2>Donaciones destacadas</h2>
+        </div>
+        <CardsCarrousel ads={ads} type={"recientes"} />
+      </div>
+      <div className="ad-publicity-space">Espacio publicitario</div>
+    </div>
+  );
 }
 
 export default HomePage;

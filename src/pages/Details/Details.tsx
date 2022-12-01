@@ -2,6 +2,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AdQuestionsCard } from "../../components/AdQuestions/AdQuestionsCard";
+import { PublicityModal } from "../../components/PublicityModal/PublicityModal";
 import { db } from "../../config/firebase";
 import "./Details.scss";
 
@@ -11,6 +12,7 @@ function Details({}) {
   const [ad, setAd]: any = useState({});
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage]: any = useState({});
+  const [modalShow, setModalShow] = useState<boolean>(true);
 
   const getAd = async () => {
     const docRef = doc(db, "ads", params.id as string);
@@ -36,9 +38,11 @@ function Details({}) {
 
   return (
     <div className="details-car-main-container">
+      <PublicityModal show={modalShow} onHide={() => setModalShow(false)} />
       <div className="header">
         <h1>Detalles</h1>
       </div>
+      <div className="ad-publicity-space">Espacio publicitario</div>
       <div className="details-car-card">
         <div className="card-content">
           <div className="main-content">
@@ -59,18 +63,15 @@ function Details({}) {
               </div>
             </div>
             <div className="info-container">
-              <h2>
-                {ad.brand} {ad.model} {ad.year}
-              </h2>
-              <h3 className="price">
-                ${" "}
-                {parseInt(ad.price)
-                  .toFixed(2)
-                  .replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")}
-              </h3>
-              <h3>
-                {ad.km.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")} km
-              </h3>
+              <div>
+                <h2>{ad.title}</h2>
+                <h3 className="price">{ad.date}</h3>
+                <h3>{ad.location}</h3>
+              </div>
+              <div className="description-container">
+                <h2>Contacto</h2>
+                <p>{ad.contact}</p>
+              </div>
             </div>
           </div>
           <div className="secondary-content">
